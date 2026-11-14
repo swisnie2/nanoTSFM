@@ -56,8 +56,8 @@ def load_config(path: Path):
     if not isinstance(settings["seed"], int) or settings["seed"] < 0:
         raise ValueError("seed must be a nonnegative integer")
     power = settings["source_power"]
-    if isinstance(power, bool) or not isinstance(power, (int, float)) or not 0 <= power <= 1:
-        raise ValueError("source_power must be a number from 0 to 1")
+    if isinstance(power, bool) or not isinstance(power, (int, float)) or not 0 <= power <= 3:
+        raise ValueError("source_power must be a number from 0 to 3")
     if not isinstance(settings["data"], str) or not settings["data"]:
         raise ValueError("data must name a dataset config or a local parquet folder")
     return model, settings
